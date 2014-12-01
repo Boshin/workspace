@@ -1,0 +1,71 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CONFIGFILENAME	threadpool.h	23;"	d
+DEF_THREAD_NUM	threadpool.h	32;"	d
+GetMaxLineLen	readConfig.c	/^static unsigned long GetMaxLineLen(char *cpFileName)$/;"	f	file:
+GetParamValue	readConfig.c	/^char *GetParamValue(char *cpConfFile, char *cpParam, char *cpValue)$/;"	f
+MANAGE_ADJUST_INTERVAL	threadpool.h	35;"	d
+MAX_THREAD_NUM	threadpool.h	29;"	d
+MIN_THREAD_NUM	threadpool.h	26;"	d
+ParseLine	readConfig.c	/^static char *ParseLine(char *cpLine, char *cpParam, char *cpValue)$/;"	f	file:
+THREAD_WORKER_HIGH_RATIO	threadpool.h	38;"	d
+THREAD_WORKER_LOW_RATIO	threadpool.h	41;"	d
+TrimLeft	readConfig.c	/^static char *TrimLeft(char *cpString)$/;"	f	file:
+TrimRight	readConfig.c	/^static void TrimRight(char *cpString)$/;"	f	file:
+TrimStr	readConfig.c	/^static char *TrimStr(char *cpString)$/;"	f	file:
+_READCONFIG_HEAD_	readConfig.h	19;"	d
+_THREADPOOL_HEAD_	threadpool.h	10;"	d
+_thread_queue_node	threadpool.h	/^typedef struct _thread_queue_node{$/;"	s
+_worker	threadpool.h	/^typedef struct _worker{$/;"	s
+arg	threadpool.h	/^	void *arg;					   	\/* 处理函数的参数  *\/$/;"	m	struct:_worker
+cleanup	threadpool.c	/^void cleanup(void *arg)$/;"	f
+conf_init	threadpool.c	/^void conf_init()$/;"	f
+cur_queue_size	threadpool.h	/^	int 				cur_queue_size;		\/* 当前等待队列的任务数目  *\/$/;"	m	struct:__anon1
+g_def_thread_num	threadpool.c	/^int				g_def_thread_num = 0;$/;"	v
+g_manage_adjust_interval	threadpool.c	/^int				g_manage_adjust_interval = 0;$/;"	v
+g_max_thread_num	threadpool.c	/^int 			g_max_thread_num = 0;$/;"	v
+g_min_thread_num	threadpool.c	/^int 			g_min_thread_num = 0;$/;"	v
+g_pool	threadpool.c	/^thread_pool  	*g_pool = NULL;$/;"	v
+g_thread_revoke	threadpool.c	/^thread_revoke 	*g_thread_revoke = NULL;$/;"	v
+g_thread_worker_high_ratio	threadpool.c	/^int 			g_thread_worker_high_ratio = 0;$/;"	v
+g_thread_worker_low_ratio	threadpool.c	/^int 			g_thread_worker_low_ratio = 0;$/;"	v
+get_config_value	threadpool.c	/^ int get_config_value(char *item)$/;"	f
+idle_queue_num	threadpool.h	/^	int 				idle_queue_num;$/;"	m	struct:__anon1
+is_revoke	threadpool.h	/^	int 				is_revoke; 			\/*是否需要撤销线程*\/$/;"	m	struct:__anon2
+main	threadpool.c	/^int main(int argc, char * argv[])$/;"	f
+max_thread_num	threadpool.h	/^	int 				max_thread_num; 	\/* 线程池中允许开启的最大线程数  *\/$/;"	m	struct:__anon1
+myprocess	threadpool.c	/^void *myprocess(void *arg)$/;"	f
+next	threadpool.h	/^	struct _thread_queue_node *next;$/;"	m	struct:_thread_queue_node	typeref:struct:_thread_queue_node::_thread_queue_node
+next	threadpool.h	/^	struct _worker *next;		  	\/* 下一个工作  *\/$/;"	m	struct:_worker	typeref:struct:_worker::_worker
+p_thread_queue_node	threadpool.h	/^}thread_queue_node,*p_thread_queue_node;$/;"	t	typeref:struct:_thread_queue_node
+pool_add_thread	threadpool.c	/^void pool_add_thread(int thread_num)$/;"	f
+pool_add_worker	threadpool.c	/^int pool_add_worker(void*(*process)(void *arg),void *arg)$/;"	f
+pool_destroy	threadpool.c	/^int pool_destroy()$/;"	f
+pool_init	threadpool.c	/^void pool_init(int max_thread_num)$/;"	f
+pool_revoke_thread	threadpool.c	/^void pool_revoke_thread(int thread_num)$/;"	f
+process	threadpool.h	/^	void *(*process)(void *arg);   	\/* 工作的处理函数指针 *\/$/;"	m	struct:_worker
+queue_head	threadpool.h	/^	thread_worker 		*queue_head;		\/* 线程池所有等待任务  *\/$/;"	m	struct:__anon1
+queue_lock	threadpool.h	/^	pthread_mutex_t 	queue_lock;			\/* 线程锁  *\/$/;"	m	struct:__anon1
+queue_ready	threadpool.h	/^	pthread_cond_t		queue_ready;		\/* 通知等待队列有新任务条件变量  *\/$/;"	m	struct:__anon1
+remove_queue_lock	threadpool.h	/^	pthread_mutex_t 	remove_queue_lock;			\/* 线程锁  *\/$/;"	m	struct:__anon1
+revoke_count	threadpool.h	/^	int 				revoke_count;		\/* 已经撤销的线程数  *\/$/;"	m	struct:__anon2
+revoke_mutex	threadpool.h	/^	pthread_mutex_t 	revoke_mutex; 		\/* 撤销线程加锁  *\/$/;"	m	struct:__anon2
+revoke_num	threadpool.h	/^	int 				revoke_num;			\/* 需要撤销的总数  *\/$/;"	m	struct:__anon2
+shutdown	threadpool.h	/^	int					shutdown;			\/* 是否销毁线程池  *\/$/;"	m	struct:__anon1
+thread_id	threadpool.h	/^	pthread_t 	thread_id;$/;"	m	struct:_thread_queue_node
+thread_idle_queue	threadpool.h	/^	thread_queue_node 	*thread_idle_queue;$/;"	m	struct:__anon1
+thread_manage	threadpool.c	/^void * thread_manage(void *arg)$/;"	f
+thread_pool	threadpool.h	/^}thread_pool;$/;"	t	typeref:struct:__anon1
+thread_queue	threadpool.h	/^	thread_queue_node 	*thread_queue;		\/* 线程池的线程队列 *\/$/;"	m	struct:__anon1
+thread_queue_add_node	threadpool.c	/^int thread_queue_add_node(p_thread_queue_node *thread_queue,pthread_t thread_id,int *count)$/;"	f
+thread_queue_node	threadpool.h	/^}thread_queue_node,*p_thread_queue_node;$/;"	t	typeref:struct:_thread_queue_node
+thread_queue_remove_node	threadpool.c	/^int thread_queue_remove_node(p_thread_queue_node *thread_queue,pthread_t thread_id,int *count)$/;"	f
+thread_revoke	threadpool.h	/^}thread_revoke;$/;"	t	typeref:struct:__anon2
+thread_revoke_init	threadpool.c	/^void thread_revoke_init()$/;"	f
+thread_revoke_queue	threadpool.h	/^	thread_queue_node 	*thread_revoke_queue;	\/* 线程撤销队列 *\/$/;"	m	struct:__anon2
+thread_routine	threadpool.c	/^void * thread_routine(void *arg)$/;"	f
+thread_worker	threadpool.h	/^}thread_worker;$/;"	t	typeref:struct:_worker
