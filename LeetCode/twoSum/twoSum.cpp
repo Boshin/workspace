@@ -6,7 +6,7 @@
 class Solution 
 {
 	public:
-#if 0
+#if 1
 		std::vector<int> twoSum(std::vector<int> &numbers, int target) 
 		{
 			std::vector<int> targetVec;
@@ -64,7 +64,7 @@ class Solution
 
 int main(int argc, char *argv[])
 {
-	int arr[] = {6 ,1 , 2, 3, 4, 5, 0};
+	int arr[] = {6 ,1 , 2, 2, 3, 4, 5, 0};
 	//int arr[] = {0, 4, 3, 0};
 	//int arr[] = {-3, 4, 3, 90};
 	std::vector<int> tmpVec;
