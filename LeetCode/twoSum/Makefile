@@ -3,18 +3,15 @@
 UNAME    	:= $(shell uname -a)
 HOST 		:= $(shell hostname -s)
 
-all:
-	    @echo $(UNAME)
-		@echo $(HOST)
-clean:
-
 MKDIR = mkdir
 RM = rm
 RMFLAGS = -fr
 
-#ifeq ($(UNAME), Linux)
+ifneq ($(UNAME), Linux)
+CC = g++
+else 
 CC = g++-4.8
-#endif
+endif
 
 FLAG = -Wall -g -std=c++11
 
