@@ -1,10 +1,20 @@
 .PHONY: all clean
 
+UNAME    	:= $(shell uname -a)
+HOST 		:= $(shell hostname -s)
+
+all:
+	    @echo $(UNAME)
+		@echo $(HOST)
+clean:
+
 MKDIR = mkdir
 RM = rm
 RMFLAGS = -fr
 
-CC = g++
+#ifeq ($(UNAME), Linux)
+CC = g++-4.8
+#endif
 
 FLAG = -Wall -g -std=c++11
 
