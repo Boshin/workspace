@@ -1,11 +1,11 @@
 .PHONY: all clean
 
-UNAME    	:= $(shell uname -a)
+UNAME    	:= $(shell uname)
 HOST 		:= $(shell hostname -s)
 
 MKDIR = mkdir
 RM = rm
-RMFLAGS = -fr
+RMFLAGS = -rf
 
 ifneq ($(UNAME), Linux)
 CC = g++
