@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main(int argc, char *argv[])
 {
 	int x=0,y[14],*z=&y;*(z++)=0x48;*(z++)=y[x++]+0x1D;

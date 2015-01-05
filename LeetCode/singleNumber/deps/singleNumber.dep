@@ -1,0 +1,1 @@
+objs/singleNumber.o deps/singleNumber.dep: singleNumber.cpp
