@@ -95,41 +95,38 @@ class Solution {
 				printf("before bitArr[0]: %d, tmp%d.bitData.bit0: %d\n\n", bitArr[0], i, tmp.bitData.bit0);
 			}
 
-			//for(int i = 0; i < sizeof(bitArr) / sizeof(bitArr[0]); ++i)
-			{
-				tar.bitData.bit0  = bitArr[0] % 3;
-				tar.bitData.bit1  = bitArr[1] % 3;  
-				tar.bitData.bit2  = bitArr[2] % 3;  
-				tar.bitData.bit3  = bitArr[3] % 3;  
-				tar.bitData.bit4  = bitArr[4] % 3;  
-				tar.bitData.bit5  = bitArr[5] % 3;  
-				tar.bitData.bit6  = bitArr[6] % 3;  
-				tar.bitData.bit7  = bitArr[7] % 3;  
-				tar.bitData.bit8  = bitArr[8] % 3;  
-				tar.bitData.bit9  = bitArr[9] % 3;  
-				tar.bitData.bit10 = bitArr[10] % 3;
-				tar.bitData.bit11 = bitArr[11] % 3;
-				tar.bitData.bit12 = bitArr[12] % 3;
-				tar.bitData.bit13 = bitArr[13] % 3;
-				tar.bitData.bit14 = bitArr[14] % 3;
-				tar.bitData.bit15 = bitArr[15] % 3;
-				tar.bitData.bit16 = bitArr[16] % 3;
-				tar.bitData.bit17 = bitArr[17] % 3;
-				tar.bitData.bit18 = bitArr[18] % 3;
-				tar.bitData.bit19 = bitArr[19] % 3;
-				tar.bitData.bit20 = bitArr[20] % 3;
-				tar.bitData.bit21 = bitArr[21] % 3;
-				tar.bitData.bit22 = bitArr[22] % 3;
-				tar.bitData.bit23 = bitArr[23] % 3;
-				tar.bitData.bit24 = bitArr[24] % 3;
-				tar.bitData.bit25 = bitArr[25] % 3;
-				tar.bitData.bit26 = bitArr[26] % 3;
-				tar.bitData.bit27 = bitArr[27] % 3;
-				tar.bitData.bit28 = bitArr[28] % 3;
-				tar.bitData.bit29 = bitArr[29] % 3;
-				tar.bitData.bit30 = bitArr[30] % 3;
-				tar.bitData.bit31 = bitArr[31] % 3;
-			}
+            tar.bitData.bit0  = bitArr[0] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit1  = bitArr[1] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit2  = bitArr[2] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit3  = bitArr[3] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit4  = bitArr[4] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit5  = bitArr[5] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit6  = bitArr[6] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit7  = bitArr[7] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit8  = bitArr[8] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit9  = bitArr[9] % 3 == 0 ? 0 : 1;  
+            tar.bitData.bit10 = bitArr[10] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit11 = bitArr[11] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit12 = bitArr[12] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit13 = bitArr[13] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit14 = bitArr[14] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit15 = bitArr[15] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit16 = bitArr[16] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit17 = bitArr[17] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit18 = bitArr[18] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit19 = bitArr[19] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit20 = bitArr[20] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit21 = bitArr[21] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit22 = bitArr[22] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit23 = bitArr[23] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit24 = bitArr[24] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit25 = bitArr[25] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit26 = bitArr[26] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit27 = bitArr[27] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit28 = bitArr[28] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit29 = bitArr[29] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit30 = bitArr[30] % 3 == 0 ? 0 : 1;
+            tar.bitData.bit31 = bitArr[31] % 3 == 0 ? 0 : 1;
 
 			printf("tarNum: %d\n", tar.intNum);
 			return tar.intNum;
@@ -138,14 +135,11 @@ class Solution {
 
 int main(int argc, char *argv[])
 {
-	int arr[] = {0, 0, 0, 1, 1, 1, 3, 3};
-	//int arr[] = {1, 2, 3, 4, 5, 4, 3, 2, 1, 6, 8, 7, 8, 7, 5, 4, 6, 3, 6, 2, 7, 1, 8};
+	//int arr[] = {0, 0, 0, 1, 1, 1, 3, 3};
+	int arr[] = {1, 2, 3, 4, 5, 4, 3, 2, 1, 6, 8, 7, 8, 7, 5, 4, 6, 3, 6, 2, 7, 1, 8};
 
 	Solution sou;
 	sou.singleNumberII(arr, sizeof(arr) / sizeof(arr[0]));
-	
-	//funNum fn;
-	//printf("%lu\n", sizeof(fn.bitData));
 	
 	return 0;
 }
