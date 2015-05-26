@@ -22,5 +22,5 @@
 
 12,搜索以前使用命令: control + r
 
-12,查看最常用的10个命令(最近500个命令)
+13,查看最常用的10个命令(最近500个命令)
 awk '{print $1}' ~/.bash_history|sort|uniq -c|sort -gr|head
