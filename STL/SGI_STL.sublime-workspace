@@ -7,6 +7,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "SGI_STL/memory",
+			"settings":
+			{
+				"buffer_size": 3525,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SGI_STL/stl_construct.h",
+			"settings":
+			{
+				"buffer_size": 3639,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SGI_STL/stl_alloc.h",
+			"settings":
+			{
+				"buffer_size": 29001,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/boshin/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 209,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,12 +47,16 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "P",
 		"selected_items":
 		[
+			[
+				"P",
+				"Project: Close"
+			]
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -44,6 +80,7 @@
 	],
 	"file_history":
 	[
+		"/Users/boshin/workspace/github/STL/SGI_STL/stl_vector.h"
 	],
 	"find":
 	{
@@ -61,6 +98,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_S_free_list",
+			"__NODE_ALLOCATOR_LOCK",
+			"_S_node_allocator_lock",
+			"allocate",
+			"alloc",
+			"_Alloc",
+			"_Alloc::allocate"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -78,14 +122,133 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "SGI_STL/memory",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								649,
+								658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "SGI_STL/stl_construct.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3617,
+								3602
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1181.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "SGI_STL/stl_alloc.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16318,
+								16318
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8477.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/boshin/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -131,6 +294,18 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"stl_v",
+				"stl_vector.h"
+			],
+			[
+				"stl_",
+				"stl_alloc.h"
+			],
+			[
+				"constr",
+				"stl_construct.h"
+			]
 		],
 		"width": 0.0
 	},
@@ -160,7 +335,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 185.0,
+	"side_bar_width": 284.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

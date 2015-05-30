@@ -1,0 +1,88 @@
+" ===============================================================================
+"        Filename: vimrc
+"        Author: 河蟹（李政甫）
+"        Email: sosofullmoon＃vip.qq.com
+"        Homepage: http://blog.csdn.net/youyudehexie
+"        Created: 2011-3-4
+" ===============================================================================
+
+colorscheme desert  " 设置主题方案
+set number          " 显示行号
+set cursorline      " 突出显示当前行
+set tabstop=4       " 设置tab键的宽度
+set backspace=2     " 设置退格键可用
+
+syn on              " 打开语法高亮
+set showmatch       " 设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
+set smartindent     " 智能对齐方式
+set shiftwidth=4    " 换行时行间交错使用4个空格
+set autoindent      " 自动对齐
+set ai!             " 设置自动缩进
+filetype plugin indent on     " 开启插件
+set completeopt=longest,menu
+
+
+" ===============================================================================
+" TagList :Tlist
+" ===============================================================================
+
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
+" ===============================================================================
+" WinManager :WMToggle
+" ===============================================================================
+
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+
+" ===============================================================================
+" cscope
+" ===============================================================================
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+" ===============================================================================
+" MiniBufExp
+" ===============================================================================
+
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+
+" ===============================================================================
+" SuperTab :SuperTabHelp
+" ===============================================================================
+
+let g:SuperTabRetainCompletionType=2
+let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+
+" ===============================================================================
+" 热键映射
+" ===============================================================================
+
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>   "cscope插件热键
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>{1}lt;CR>
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+nmap <F6> :cn<cr>    “ cw模式下热键
+nmap <F7> :cp<cr>
+
+map <F11> :A<cr>     “ 头文件与源文件切换
+
+map <F5> :w<CR>:make<CR>   ”执行编译MAKE
+map <F5><F5> :make clean<CR>  
+
+vmap <C-c> "yy   “复制模拟 CTRL + C
+vmap <C-x> "yd
+nmap <C-v> "yp
+vmap <C-v> "yp
+nmap <C-a> ggvG$
+
+nmap <C-s> :wa<cr>  “模拟WIN 保存 CTRL + S
+imap <C-s> <Esc>:wa<cr>i<Right>

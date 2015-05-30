@@ -1,0 +1,71 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+
+behave mswin
+set nobackup
+
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+set nu!
+colorscheme rainbow_neon
+syntax enable
+"syntax on
+set encoding=gbk
+"set encoding=gb2312
+set fileencodings=utf-8,gbk
+
+"---------tags--------------------------------------------
+set tags=tags 
+set autochdir
+
+"---------taglist------------------------------------------
+let Tlist_Show_One_File=1 
+let Tlist_Exit_OnlyWindow=1
+
+"---------WinManager---------------------------------------
+let g:winManagerWindowLayout='FileExplorer|TagList' 
+nmap wm :WMToggle<cr>
+
+"----------多文档编辑minibufexpl-----------------------------
+let g:miniBufExplMapCTabSwitchBufs=1 
+let g:miniBufExplMapWindowsNavVim=1 
+let g:miniBufExplMapWindowNavArrows=1
+
+"----------h\c切换--------------------------------------------
+nnoremap <silent> <F12> :A<CR> 
+
+"----------快速注释 NERD_commenter----------------------------
+map <F9> <leader>cc
+map <F10> <leader>cu
+
+"-----------Python--------------------------------------------
+filetype plugin on  "启用filetype插件
+
+let g:pydiction_location = 'C:\Program Files (x86)\Vim\vimfiles\ftplugin\pydiction' 
+let g:pydiction_menu_height = 20 "设置弹出菜单的高度，默认是15
+
