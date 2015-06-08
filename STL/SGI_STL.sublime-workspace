@@ -40,14 +40,15 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/boshin/workspace/github/STL/SGI_STL"
+		"/home/boshin/boshin/workspace/STL/SGI_STL"
 	],
 	"file_history":
 	[
+		"/home/boshin/boshin/workspace/STL/SGI_STL/stl_alloc.h"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -61,6 +62,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_S_freelist_index",
+			"_S_free_list"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -136,12 +139,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/workspace/17Cy/17Cy.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -160,7 +167,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 185.0,
+	"side_bar_width": 248.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
