@@ -1,0 +1,41 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CompareFunc	linearList.h	/^typedef Status (*CompareFunc)(int elem1, int elem2);$/;"	t
+ERROR	MicroDefine.h	/^#define ERROR /;"	d
+FALSE	MicroDefine.h	/^#define FALSE /;"	d
+INEASIBLE	MicroDefine.h	/^#define INEASIBLE /;"	d
+LISTINCREMENT	linearList.h	/^#define LISTINCREMENT /;"	d
+LIST_INIT_SIZE	linearList.h	/^#define LIST_INIT_SIZE /;"	d
+List	linearList.h	/^struct List$/;"	s
+OK	MicroDefine.h	/^#define OK /;"	d
+OVERFLOW	MicroDefine.h	/^#define OVERFLOW /;"	d
+SqList	linearList.h	/^typedef struct List<int*> SqList;$/;"	t	typeref:struct:List
+Status	MicroDefine.h	/^typedef int Status;$/;"	t
+TRUE	MicroDefine.h	/^#define TRUE /;"	d
+_LINEARLIST_H	linearList.h	/^#define _LINEARLIST_H$/;"	d
+_MICRO_DEFINE_H	MicroDefine.h	/^#define _MICRO_DEFINE_H$/;"	d
+callAlgorithem2_1	main.cpp	/^void callAlgorithem2_1(SqList &la, SqList &lb)$/;"	f
+callAlgorithem2_2	main.cpp	/^void callAlgorithem2_2(SqList &la, SqList &lb, SqList &lc)$/;"	f
+callAlgorithem2_7	main.cpp	/^void callAlgorithem2_7(SqList &la, SqList &lb, SqList &lc)$/;"	f
+clearLis	linearList.cpp	/^Status clearLis(SqList &list)$/;"	f
+destroyList	linearList.cpp	/^Status destroyList(SqList &list)$/;"	f
+elem	linearList.h	/^    T elem;            \/\/存储空间基址$/;"	m	struct:List
+equal	linearList.cpp	/^Status equal(int e1, int e2)$/;"	f
+getElem	linearList.h	/^Status getElem(SqList list, int i, ElemType &e)$/;"	f
+initList	linearList.h	/^Status initList(SqList &list, ElemType)         \/\/algorithem2.3$/;"	f
+length	linearList.h	/^    int length;         \/\/当前长度$/;"	m	struct:List
+listDelete	linearList.h	/^Status listDelete(SqList &l, int i, ElemType &e)$/;"	f
+listEmpty	linearList.cpp	/^Status listEmpty(SqList list)$/;"	f
+listInsert	linearList.h	/^Status listInsert(SqList &list, int i, ElemType e)          \/\/algorithem2.4$/;"	f
+listLength	linearList.cpp	/^Status listLength(SqList list)$/;"	f
+listSize	linearList.h	/^    int listSize;       \/\/当前分配的存储空间容量(以sizeof（T)为单位）$/;"	m	struct:List
+listUnion	linearList.cpp	/^void listUnion(SqList &la, SqList &lb)$/;"	f
+locateElem	linearList.h	/^Status locateElem(SqList l, ElemType e, CompareFunc compare)    \/\/algorithem2.6$/;"	f
+main	main.cpp	/^int main(int argc, char *charv[])$/;"	f
+mergeList	linearList.cpp	/^void mergeList(const SqList &la, const SqList &lb, SqList &lc)$/;"	f
+mergeList_2_7	linearList.h	/^void mergeList_2_7(const SqList &la, const SqList &lb, SqList &lc, ElemType)  \/\/algorithem2.7$/;"	f
+printList	main.cpp	/^void printList(SqList &list)$/;"	f

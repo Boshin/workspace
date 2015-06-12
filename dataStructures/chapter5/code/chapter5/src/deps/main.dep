@@ -1,0 +1,3 @@
+objs/main.o deps/main.dep: main.c \
+  /Users/boshin/Project/dataStructures/chapter5/code/Array/inc/Array.h \
+  /Users/boshin/Project/dataStructures/chapter5/../MicroDefine.h

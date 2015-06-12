@@ -1,0 +1,3 @@
+objs/XString.o deps/XString.dep: XString.cpp \
+  /Users/boshin/Project/dataStructures/chapter4/code/XString/inc/xstring.h \
+  /Users/boshin/Project/dataStructures/chapter4/../MicroDefine.h

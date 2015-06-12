@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+void exchange(T &a,T &b);
+
+template <class T>
+int initList(T &l);
+
+int main()
+{
+    int num1=1,num2=2;
+    double dnum1=3.0,dnum2=4.0;
+    exchange(num1,num2);
+    cout<<"交换值后num1="<<num1<<" num2="<<num2<<endl;
+    exchange(dnum1,dnum2);
+    cout<<"交换值后dnum1="<<dnum1<<" dnum2="<<dnum2<<endl;
+
+    int li;
+    initList(li);
+
+    return 0;
+}
+
+template <class T>
+void exchange(T &a,T &b)
+{
+    T temp;
+    temp=a;
+    a=b;
+    b=temp;
+}
+
+template<class T>
+int initList(T &l)
+{
+    //*l = 10;
+    //for(int i  = 0; i < 10; ++i)
+    //{
+    //    l[i] = i + 1;
+    //}
+
+    return 0;
+}
