@@ -1,0 +1,82 @@
+Class <anonymous struct>
+   size=8 align=4
+   base size=8 base align=4
+<anonymous struct> (0x0x7f368a6c9660) 0
+
+Class <anonymous struct>::<anonymous union>
+   size=4 align=4
+   base size=4 base align=4
+<anonymous struct>::<anonymous union> (0x0x7f368a6c9720) 0
+
+Class <anonymous struct>
+   size=8 align=4
+   base size=8 base align=4
+<anonymous struct> (0x0x7f368a6c96c0) 0
+
+Class <anonymous struct>
+   size=16 align=8
+   base size=16 base align=8
+<anonymous struct> (0x0x7f368a6c9780) 0
+
+Class <anonymous struct>
+   size=16 align=8
+   base size=16 base align=8
+<anonymous struct> (0x0x7f368a6c97e0) 0
+
+Class _IO_marker
+   size=24 align=8
+   base size=24 base align=8
+_IO_marker (0x0x7f368a6c9840) 0
+
+Class _IO_FILE
+   size=216 align=8
+   base size=216 base align=8
+_IO_FILE (0x0x7f368a6c98a0) 0
+
+Class <anonymous struct>
+   size=32 align=8
+   base size=32 base align=8
+<anonymous struct> (0x0x7f368a6c9900) 0
+
+Vtable for baseA
+baseA::_ZTV5baseA: 3u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI5baseA)
+16    (int (*)(...))baseA::pri
+
+Class baseA
+   size=8 align=8
+   base size=8 base align=8
+baseA (0x0x7f368a6c9960) 0 nearly-empty
+    vptr=((& baseA::_ZTV5baseA) + 16u)
+
+Vtable for drivedB
+drivedB::_ZTV7drivedB: 3u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI7drivedB)
+16    (int (*)(...))drivedB::pri
+
+Class drivedB
+   size=8 align=8
+   base size=8 base align=8
+drivedB (0x0x7f368a6c0138) 0 nearly-empty
+    vptr=((& drivedB::_ZTV7drivedB) + 16u)
+  baseA (0x0x7f368a6c99c0) 0 nearly-empty
+      primary-for drivedB (0x0x7f368a6c0138)
+
+Vtable for drivedc
+drivedc::_ZTV7drivedc: 3u entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI7drivedc)
+16    (int (*)(...))drivedc::pri
+
+Class drivedc
+   size=8 align=8
+   base size=8 base align=8
+drivedc (0x0x7f368a6c0618) 0 nearly-empty
+    vptr=((& drivedc::_ZTV7drivedc) + 16u)
+  drivedB (0x0x7f368a6c0680) 0 nearly-empty
+      primary-for drivedc (0x0x7f368a6c0618)
+    baseA (0x0x7f368a6c9a80) 0 nearly-empty
+        primary-for drivedB (0x0x7f368a6c0680)
+
