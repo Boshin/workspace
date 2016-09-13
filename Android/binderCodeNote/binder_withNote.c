@@ -1139,7 +1139,7 @@ static struct binder_ref *binder_get_ref_for_node(struct binder_proc *proc,
         return NULL;
     binder_stats_created(BINDER_STAT_REF);        // 全局统计数据结构相应域加1
     new_ref->debug_id = ++binder_last_id;
-    new_ref->proc = proc;                         // 和当前的binder_proc对应
+    new_ref->proc = proc;                         // 和目标的binder_proc对应
     new_ref->node = node;                         // 和binder_node对应
     rb_link_node(&new_ref->rb_node_node, parent, p);
     rb_insert_color(&new_ref->rb_node_node, &proc->refs_by_node);   // 插入proc->refs_by_node红黑树
@@ -1972,7 +1972,7 @@ static void binder_transaction(struct binder_proc *proc,
      这时binder驱动就会给他找一个空闲线程来处理这个请求数据包
     */
     t->work.type = BINDER_WORK_TRANSACTION;
-    list_add_tail(&t->work.entry, target_list);  // 将binder_transaction.binder_work加入目标to_od队列中去等待分配处理
+    list_add_tail(&t->work.entry, target_list);  // 将binder_transaction.binder_work加入目标to_do队列中去等待分配处理
     tcomplete->type = BINDER_WORK_TRANSACTION_COMPLETE;
     // 发送端binder_work加入当前线程的todo队列中，binder驱动通知发送端，数据已经成功发送出去了。
     list_add_tail(&tcomplete->entry, &thread->todo);
