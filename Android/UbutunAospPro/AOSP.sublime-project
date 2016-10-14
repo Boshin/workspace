@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "AOSP/system"
+		},
+		{
+			"path": "AOSP/hardware"
+		},
+		{
+			"path": "AOSP/frameworks"
+		}
+	]
+}
