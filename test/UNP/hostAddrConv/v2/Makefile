@@ -20,7 +20,7 @@ DIR_EXES = exec
 DIR_DEPS = deps
 DIRS = $(DIR_OBJS) $(DIR_EXES) $(DIR_DEPS)
 
-EXE = hostent
+EXE = daytimecli 
 EXE := $(addprefix $(DIR_EXES)/, $(EXE))
 
 SRCS = $(wildcard *.c)

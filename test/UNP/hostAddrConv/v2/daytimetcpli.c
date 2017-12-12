@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
     if ((hptr = gethostbyname(argv[1])) == NULL) {
         if (inet_aton(argv[1], &inetaddr) == 0) {
-            printf("hostname error of %s: %s", argv[1], hstrerror(h_errno));
+            printf("hostname error of %s: %s\n", argv[1], hstrerror(h_errno));
             return -1;
         }
         else {
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
     }
 
     if ((sptr = getservbyname(argv[2], "tcp")) == NULL) {
-        printf("getservername error for %s", argv[2]);
+        printf("getservername error for %s\n", argv[2]);
         return -1;
     }
 
