@@ -1,3 +1,0 @@
-objs/Array.o deps/Array.dep: Array.c \
-  /Users/boshin/Project/dataStructures/chapter5/code/Array/inc/Array.h \
-  /Users/boshin/Project/dataStructures/chapter5/../MicroDefine.h
