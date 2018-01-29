@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #coding:utf-8
 
 import os,sys
@@ -72,13 +73,15 @@ def getfilelist(filepath, tabnum=1):
     for num in range(len(filelist)):
         filename = filelist[num]
         if filename[0] != '.':
-            print "filename: ", filename, "\n"
-        if os.path.isdir(filepath + "/" + filename):
-            returndirstr += "\t" * tabnum + getfilelist(filepath + "/" + filename, tabnum + 1)
-        else:
-            returnfilestr += "\t" * tabnum + filename + "\n"
-            if filename[filename.rfind('.') + 1 : ] in imageTypes:
-                print "====is image"
+            # print "filename: ", filename, "\n"
+            if os.path.isdir(filepath + "/" + filename):
+                returndirstr += "\t" * tabnum + getfilelist(filepath + "/" + filename, tabnum + 1)
+            else:
+                returnfilestr += "\t" * tabnum + filename + "\n"
+                if filename[filename.rfind('.') + 1 : ] in imageFormat:
+                    print "====is image", filename, "\n"
+                else:
+                    print "+++ is video", filename, '\n'
     returnstr += returnfilestr + returndirstr
     return returnstr+ "\t" * tabnum + "</>\n"
 
@@ -94,10 +97,10 @@ def traversalDir(filepath):
         print "输入的不是目录!"
     else:
         getfilelist(usefulpath)
-        # filelist = os.listdir(usefulpath)
-        # o = open("test.xml","w+")
-        # o.writelines(getfilelist(usefulpath))
-        # o.close()
+        filelist = os.listdir(usefulpath)
+        o = open("test.xml","w+")
+        o.writelines(getfilelist(usefulpath))
+        o.close()
         print "成功！请查看test.xml文件"
 
 if __name__ == '__main__':
