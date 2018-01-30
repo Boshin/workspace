@@ -4,7 +4,8 @@
 import os,sys
 
 imageFormat = ('jpg', 'png', 'gif', 'jpeg')
-videoFormat = ('mp4', 'flv', 'mkv')
+videoFormat = ('mp4', 'flv', 'mkv', 'swf','webm', 'ogg')
+delFormat = ('url', 'txt', 'rar', 'html')
 
 # 获取脚本文件的当前路径
 def cur_file_dir():
@@ -17,9 +18,8 @@ def cur_file_dir():
     elif os.path.isfile(path):
         return os.path.dirname(path)
 
-def getfilelist(filepath, tabnum = 1):
+def getfilelist(filepath, genPath, tabnum = 1):
     simplePath = os.path.split(filepath)[1]
-    # returnstr = simplePath + '目录<>' + '\n'
     returnstr = simplePath + '\n'
     filelist = os.listdir(filepath)
 
@@ -30,7 +30,7 @@ def getfilelist(filepath, tabnum = 1):
     htmlTailStr = '\n</body>\n</html>'
     htmlBodyStr = ''
 
-    htmlName = filepath + '/'+ simplePath + '.html'
+    htmlName = genPath + '/'+ simplePath + '.html'
     htmlFile = open(htmlName, 'w+')
     htmlFile.writelines(htmlHeadStr)
 
@@ -38,19 +38,29 @@ def getfilelist(filepath, tabnum = 1):
         filename = filelist[num]
         if filename[0] != '.':
             if os.path.isdir(filepath + '/' + filename):
-                htmlBodyStr += '\t' * tabnum + '<a href="%s/%s.html" target="_blank">%s</a></br>\n' %(filename.decode('utf-8'), filename.decode('utf-8'), filename.decode('utf-8'))
-                getfilelist(filepath + '/' + filename, tabnum + 1)
+                htmlBodyStr += '\t' * tabnum + '<a href="%s.html" target="_blank">%s</a></br>\n' %(filename, filename)
+                getfilelist(filepath + '/' + filename, genPath, tabnum + 1)
             else:
                 if filename[filename.rfind('.') + 1 : ] in imageFormat:
-                    htmlBodyStr += '\t' * tabnum + '<img src="%s" width="%dpx" height="%dpx"></br>\n' %(filename.decode('utf-8'), 300, 300)
+                    if tabnum == 1:
+                        htmlBodyStr += '\t' * tabnum + '<img src="%s" width="%dpx" height="%dpx"></br>\n' %(filename, 300, 300)
+                    else:
+                        htmlBodyStr += '\t' * tabnum + '<img src="%s/%s" width="%dpx" height="%dpx"></br>\n' %(simplePath, filename, 300, 300)
                 elif filename[filename.rfind('.') + 1 : ] in videoFormat:
-                    htmlBodyStr += '\t' * tabnum + '<a href="%s" target="_blank">%s</a></br>\n' %(filename.decode('utf-8'), filename.decode('utf-8'))
-    print "htmlBodyStr \n",  htmlBodyStr
+                    if tabnum == 1:
+                        htmlBodyStr += '\t' * tabnum + '<a href="%s" target="_blank">%s</a></br>\n' %(filename, filename)
+                    else:
+                        htmlBodyStr += '\t' * tabnum + '<a href="%s/%s" target="_blank">%s</a></br>\n' %(simplePath, filename, filename)
+                elif filename[filename.rfind('.') + 1 : ] in delFormat:
+                    delFile = filepath + '/' + filename
+                    print "---delFile: ", delFile
+                    os.remove(delFile)
+
     htmlFile.writelines(htmlBodyStr)
     htmlFile.writelines(htmlTailStr)
     htmlFile.close()
 
-def traversalDir(filepath):
+def traversalDir(filepath, genPath):
     # path = raw_input('请输入文件路径:')
     path = filepath
     usefulpath = path.replace('\\', '/')
@@ -61,10 +71,13 @@ def traversalDir(filepath):
     elif not os.path.isdir(usefulpath):
         print 'is not a directory'
     else:
-        getfilelist(usefulpath)
+        getfilelist(usefulpath, genPath)
         print 'genorate html file OK'
 
 if __name__ == '__main__':
-    # savedir = cur_file_dir()#获取当前.py脚本文件的文件路径
-    savedir = '/home/boshin/boshin/testHtml'
-    traversalDir(savedir)
+    tmpPath = '/Users/boshin/Pictures/testHtml/'
+    srcPath = tmpPath
+    genPath = tmpPath
+    srcPath = '/home/pi/Videos/'
+    genPath = '/usr/local/nginx-stream/html'
+    traversalDir(srcPath, genPath)
