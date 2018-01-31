@@ -18,44 +18,48 @@ def cur_file_dir():
     elif os.path.isfile(path):
         return os.path.dirname(path)
 
-def getfilelist(filepath, genPath, tabnum = 1):
-    simplePath = os.path.split(filepath)[1]
-    returnstr = simplePath + '\n'
+def getfilelist(filepath, parentPath, genPath, tabnum = 1):
     filelist = os.listdir(filepath)
+    simplePath = os.path.split(filepath)[1]
 
-    htmlHeadStr = '<!DOCTYPE html>\n<page pageEncoding="utf-8">\n<meta content="text/html;charsetset=utf-8">'
-    htmlHeadStr += '\n<html>'
-    htmlHeadStr += '\n<head></head>'
-    htmlHeadStr += '\n<body>\n'
-    htmlTailStr = '\n</body>\n</html>'
+    if tabnum == 2:
+        parentPath = simplePath
+    if tabnum > 2:
+        parentPath = parentPath + '/' + simplePath
+
     htmlBodyStr = ''
-
-    htmlName = genPath + '/'+ simplePath + '.html'
-    htmlFile = open(htmlName, 'w+')
-    htmlFile.writelines(htmlHeadStr)
 
     for num in range(len(filelist)):
         filename = filelist[num]
         if filename[0] != '.':
             if os.path.isdir(filepath + '/' + filename):
                 htmlBodyStr += '\t' * tabnum + '<a href="%s.html" target="_blank">%s</a></br>\n' %(filename, filename)
-                getfilelist(filepath + '/' + filename, genPath, tabnum + 1)
+                getfilelist(filepath + '/' + filename, parentPath, genPath, tabnum + 1)
             else:
                 if filename[filename.rfind('.') + 1 : ] in imageFormat:
                     if tabnum == 1:
                         htmlBodyStr += '\t' * tabnum + '<img src="%s" width="%dpx" height="%dpx"></br>\n' %(filename, 300, 300)
                     else:
-                        htmlBodyStr += '\t' * tabnum + '<img src="%s/%s" width="%dpx" height="%dpx"></br>\n' %(simplePath, filename, 300, 300)
+                        htmlBodyStr += '\t' * tabnum + '<img src="%s/%s" width="%dpx" height="%dpx"></br>\n' %(parentPath, filename, 300, 300)
                 elif filename[filename.rfind('.') + 1 : ] in videoFormat:
                     if tabnum == 1:
                         htmlBodyStr += '\t' * tabnum + '<a href="%s" target="_blank">%s</a></br>\n' %(filename, filename)
                     else:
-                        htmlBodyStr += '\t' * tabnum + '<a href="%s/%s" target="_blank">%s</a></br>\n' %(simplePath, filename, filename)
-                elif filename[filename.rfind('.') + 1 : ] in delFormat:
+                        htmlBodyStr += '\t' * tabnum + '<a href="%s/%s" target="_blank">%s</a></br>\n' %(parentPath, filename, filename)
+                elif filename[filename.rfind('.') + 1 : ] in delFormat and tabnum == 1:
                     delFile = filepath + '/' + filename
                     print "---delFile: ", delFile
                     os.remove(delFile)
 
+    htmlName = genPath + '/'+ simplePath + '.html'
+    print "htmlName: ", htmlName
+    htmlFile = open(htmlName, 'w+')
+    htmlHeadStr = '<!DOCTYPE html>\n<page pageEncoding="utf-8">\n<meta content="text/html;charsetset=utf-8">'
+    htmlHeadStr += '\n<html>'
+    htmlHeadStr += '\n<head></head>'
+    htmlHeadStr += '\n<body>\n'
+    htmlTailStr = '\n</body>\n</html>'
+    htmlFile.writelines(htmlHeadStr)
     htmlFile.writelines(htmlBodyStr)
     htmlFile.writelines(htmlTailStr)
     htmlFile.close()
@@ -71,13 +75,14 @@ def traversalDir(filepath, genPath):
     elif not os.path.isdir(usefulpath):
         print 'is not a directory'
     else:
-        getfilelist(usefulpath, genPath)
+        getfilelist(usefulpath, '', genPath)
         print 'genorate html file OK'
 
 if __name__ == '__main__':
-    tmpPath = '/Users/boshin/Pictures/testHtml/'
+    # tmpPath = '/Users/boshin/Pictures/testHtml/'
+    tmpPath = '/home/boshin/boshin/testHtml'
     srcPath = tmpPath
     genPath = tmpPath
-    srcPath = '/home/pi/Videos/'
-    genPath = '/usr/local/nginx-stream/html'
+    # srcPath = '/home/pi/Videos/'
+    # genPath = '/usr/local/nginx-stream/html'
     traversalDir(srcPath, genPath)
