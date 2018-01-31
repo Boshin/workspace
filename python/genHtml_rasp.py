@@ -18,7 +18,19 @@ def cur_file_dir():
     elif os.path.isfile(path):
         return os.path.dirname(path)
 
-def getfilelist(filepath, parentPath, genPath, tabnum = 1):
+def mkdir(path):
+    path=path.strip()
+    path=path.rstrip("/")  # strip /
+    # isExists=os.path.exists(path)
+
+    if os.path.exists(path):
+        print 'remove dir ' + path + '\n'
+        os.removedirs(path)
+
+    os.makedirs(path)
+    print path + 'creat success'
+
+def getfilelist(filepath, parentPath, genDir, tabnum = 1):
     filelist = os.listdir(filepath)
     simplePath = os.path.split(filepath)[1]
 
@@ -34,7 +46,7 @@ def getfilelist(filepath, parentPath, genPath, tabnum = 1):
         if filename[0] != '.':
             if os.path.isdir(filepath + '/' + filename):
                 htmlBodyStr += '\t' * tabnum + '<a href="%s.html" target="_blank">%s</a></br>\n' %(filename, filename)
-                getfilelist(filepath + '/' + filename, parentPath, genPath, tabnum + 1)
+                getfilelist(filepath + '/' + filename, parentPath, genDir, tabnum + 1)
             else:
                 if filename[filename.rfind('.') + 1 : ] in imageFormat:
                     if tabnum == 1:
@@ -51,7 +63,7 @@ def getfilelist(filepath, parentPath, genPath, tabnum = 1):
                     print "---delFile: ", delFile
                     os.remove(delFile)
 
-    htmlName = genPath + '/'+ simplePath + '.html'
+    htmlName = genDir + '/'+ simplePath + '.html'
     print "htmlName: ", htmlName
     htmlFile = open(htmlName, 'w+')
     htmlHeadStr = '<!DOCTYPE html>\n<page pageEncoding="utf-8">\n<meta content="text/html;charsetset=utf-8">'
@@ -64,7 +76,7 @@ def getfilelist(filepath, parentPath, genPath, tabnum = 1):
     htmlFile.writelines(htmlTailStr)
     htmlFile.close()
 
-def traversalDir(filepath, genPath):
+def traversalDir(filepath, genDir):
     # path = raw_input('请输入文件路径:')
     path = filepath
     usefulpath = path.replace('\\', '/')
@@ -75,14 +87,16 @@ def traversalDir(filepath, genPath):
     elif not os.path.isdir(usefulpath):
         print 'is not a directory'
     else:
-        getfilelist(usefulpath, '', genPath)
+        getfilelist(usefulpath, '', genDir)
         print 'genorate html file OK'
 
 if __name__ == '__main__':
     # tmpPath = '/Users/boshin/Pictures/testHtml/'
     tmpPath = '/home/boshin/boshin/testHtml'
     srcPath = tmpPath
-    genPath = tmpPath
+    # genDir = tmpPath
+    genDir = srcPath + '/source'
     # srcPath = '/home/pi/Videos/'
-    # genPath = '/usr/local/nginx-stream/html'
-    traversalDir(srcPath, genPath)
+    # genDir = '/usr/local/nginx-stream/html'
+    mkdir(genDir)
+    traversalDir(srcPath, genDir)
