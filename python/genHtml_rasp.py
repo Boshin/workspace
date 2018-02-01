@@ -2,33 +2,38 @@
 #coding:utf-8
 
 import os,sys
+import shutil
 
 imageFormat = ('jpg', 'png', 'gif', 'jpeg')
 videoFormat = ('mp4', 'flv', 'mkv', 'swf','webm', 'ogg')
 delFormat = ('url', 'txt', 'rar', 'html')
 
-# 获取脚本文件的当前路径
-def cur_file_dir():
-    # 获取脚本路径
+def getCurPath():
     path = sys.path[0]
-    # 判断为脚本文件还是py2exe编译后的文件，如果是脚本文件，则返回的是脚本的目录，
-    # 如果是py2exe编译后的文件，则返回的是编译后的文件路径
     if os.path.isdir(path):
         return path
     elif os.path.isfile(path):
         return os.path.dirname(path)
 
-def mkdir(path):
-    path=path.strip()
-    path=path.rstrip("/")  # strip /
-    # isExists=os.path.exists(path)
+def removeDir(dirPath):
+    if not os.path.isdir(dirPath):
+        return
+    files = os.listdir(dirPath)
+    try:
+        for file in files:
+            filePath=os.path.join(dirPath, file)
+            if os.path.isfile(filePath):
+                os.remove(filePath)
+            elif os.path.isdir(filePath):
+                removeDir(filePath)
+        os.rmdir(dirPath)
+    except Exception,e:
+        print e
 
-    if os.path.exists(path):
-        print 'remove dir ' + path + '\n'
-        os.removedirs(path)
-
+def reCreatDir(path):
+    # removeDir(path)
+    shutil.rmtree(path)
     os.makedirs(path)
-    print path + 'creat success'
 
 def getfilelist(filepath, parentPath, genDir, tabnum = 1):
     filelist = os.listdir(filepath)
@@ -98,5 +103,6 @@ if __name__ == '__main__':
     genDir = srcPath + '/source'
     # srcPath = '/home/pi/Videos/'
     # genDir = '/usr/local/nginx-stream/html'
-    mkdir(genDir)
+
+    reCreatDir(genDir)
     traversalDir(srcPath, genDir)
