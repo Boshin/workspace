@@ -54,7 +54,7 @@ def getfilelist(filepath, parentPath, genDir, tabnum = 1):
         if filename[0] != '.':
             if os.path.isdir(filepath + '/' + filename):
                 # htmlBodyStr += '\t' * tabnum + '<a href="%s.html" target="_top">%s</a></br>\n' %(filename, filename)
-                htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="img_html/dir01.png" align="top" width="33px" height="35px" />'
+                htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="../img/dir01.png" align="top" width="33px" height="35px" />'
                 htmlBodyStr += '\n\t\t\t<a href="%s.html" target="_top">%s</a>\n\t\t</div>' %(filename, filename)
                 getfilelist(filepath + '/' + filename, parentPath, genDir, tabnum + 1)
                 isGen = True
@@ -81,11 +81,11 @@ def getfilelist(filepath, parentPath, genDir, tabnum = 1):
         for filename in videoFiles:
             if tabnum == 1:
                 # htmlBodyStr += '\t' * tabnum + '<a href="%s" target="_blank">%s</a></br>\n' %(filename, filename)
-                htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="img_html/video01.png" align="top" width="33px" height="35px" />'
+                htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="../img/video01.png" align="top" width="33px" height="35px" />'
                 htmlBodyStr += '\n\t\t\t<a href="%s" target="_top">%s</a>\n\t\t</div>' %(filename, filename)
             else:
                 # htmlBodyStr += '\t' * tabnum + '<a href="%s/%s" target="_blank">%s</a></br>\n' %(parentPath, filename, filename)
-                htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="img_html/video01.png" align="top" width="33px" height="35px" />'
+                htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="../img/video01.png" align="top" width="33px" height="35px" />'
                 htmlBodyStr += '\n\t\t\t\t<a href="%s/%s" target="_top">%s</a>\n\t\t\t</div>' %(parentPath, filename, filename)
 
     if not isGen:
@@ -131,8 +131,8 @@ def traversalDir(filepath, genDir):
         print 'genorate html file OK'
 
 if __name__ == '__main__':
-    srcPath = '/media/mnt/Videos/'
-    genDir = '/usr/local/nginx-stream/html/source'
+    srcPath = '/Users/boshin/Movies/adult'
+    genDir = '/Users/boshin/Movies/source'
 
     reCreatDir(genDir)
     traversalDir(srcPath, genDir)
