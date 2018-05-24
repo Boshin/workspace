@@ -1,0 +1,64 @@
+<script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript">
+        var vlcArray=new Array()
+        $(function() {
+
+            for(var i=1;i<7;i++){
+                var vlc_id="vlc_"+i;
+                var obj = new vlcObject();
+                obj.vlc=document.getElementById(vlc_id);
+                vlcArray.push(obj);
+
+            }
+            begin();
+        })
+        function begin(){
+            for(var i=1;i<7;i++){
+                var index=i-1;
+                obj=vlcArray[index];
+                //state =3 表示正在播放
+                if(obj.vlc.input.state==3){
+
+                    if (obj.isPlay==1){
+
+                        //观看时长赋值
+                        obj.seeTime=(new Date().getTime() - obj.beginTime)/1000+obj.stopTime;
+                    }
+                    else{
+
+                        obj.isPlay=1;
+                        obj.beginTime=new Date().getTime();
+                        obj.stopTime=obj.seeTime;
+                    }
+                }
+                //state =4 表示暂停播放;state =5 表示停止播放 state =2 表示缓冲
+                if (obj.vlc.input.state==4 || obj.vlc.input.state==5 || obj.vlc.input.state==2){
+                    obj.isPlay=0;
+
+                }
+                setSeeTime(obj,i);
+            }
+            setTimeout("begin()",1000);
+        }
+        function setSeeTime(obj,id){
+
+            var span_id="#span_"+id;
+            $(span_id).html(parseInt(obj.seeTime));
+        }
+
+
+
+        //自定义vlc对象
+        function vlcObject() {
+            var temp = new Object;
+            temp.vlc = new Object;
+            //观看时长
+            temp.seeTime=0;
+            //开始播放时间
+            temp.beginTime=0
+            temp.isPlay=0;
+            //暂停前观看的时长
+            temp.stopTime=0;
+            return temp;
+        }
+        </script>

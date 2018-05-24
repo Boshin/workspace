@@ -10,11 +10,8 @@ html, body, div, p{
 }
 
 body {
-    /*color: #444;*/
     background: url(../img/02.jpg) 0 0 fixed;
     font: 17px/1.6 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
-    /*font-weight:400;*/
-    /*font-family:Play, "Arial", Helvetica, Times, serif;*/
 }
 
 a{
@@ -33,8 +30,9 @@ a, h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
     text-decoration:none;
 }
 
-img {
+a,img {
     boarder: 0px;
+    vertical-align: middle;
 }
 
 .frame {
@@ -43,7 +41,8 @@ img {
     position: relative;
     margin-top: 50px;
     margin-left: auto;
-    margin-right: auto;}
+    margin-right: auto;
+}
 
 .header {
     position: relative;
@@ -90,4 +89,9 @@ img {
 .content_folder {
     /*background: #FFF;*/
     border-bottom: 1px dashed #ccc;
+}
+
+.img_folder {
+    border-bottom: 1px dashed #ccc;
+    margin:0 auto;
 }

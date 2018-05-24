@@ -68,14 +68,6 @@ def getfilelist(filepath, parentPath, genDir, tabnum = 1):
                     print "---delFile: ", delFile
                     # os.remove(delFile)
 
-    if 0 < len(imgFiles):
-        isGen = True
-        for filename in imgFiles:
-            if tabnum == 1:
-                htmlBodyStr += '\t' * tabnum + '<img src="%s" width="%dpx" height="%dpx"></br>\n' %(filename, 300, 300)
-            else:
-                htmlBodyStr += '\t' * tabnum + '<img src="%s/%s" width="%dpx" height="%sdpx"></br>\n' %(parentPath, filename, 300, 300)
-
     if 0 < len(videoFiles):
         isGen = True
         for filename in videoFiles:
@@ -86,6 +78,17 @@ def getfilelist(filepath, parentPath, genDir, tabnum = 1):
             else:
                 # htmlBodyStr += '\t' * tabnum + '<a href="%s/%s" target="_blank">%s</a></br>\n' %(parentPath, filename, filename)
                 htmlBodyStr += '\n\t\t\t<div class="content_folder">\n\t\t\t\t<img src="img_html/video01.png" align="top" width="33px" height="35px" />'
+                htmlBodyStr += '\n\t\t\t\t<a href="%s/%s" target="_top">%s</a>\n\t\t\t</div>' %(parentPath, filename, filename)
+
+    if 0 < len(imgFiles):
+        isGen = True
+        for filename in imgFiles:
+            if tabnum == 1:
+                htmlBodyStr += '\n\t\t\t<div class="img_folder">\n\t\t\t\t<img src="%s" width="33px" height="35px" />' %(filename)
+                htmlBodyStr += '\n\t\t\t<a href="%s" target="_top">%s</a>\n\t\t</div>' %(filename, filename)
+            else:
+                # htmlBodyStr += '\t' * tabnum + '<a href="%s/%s" target="_blank">%s</a></br>\n' %(parentPath, filename, filename)
+                htmlBodyStr += '\n\t\t\t<div class="img_folder">\n\t\t\t\t<img src="%s/%s" width="38px" height="30px" />' %(parentPath, filename)
                 htmlBodyStr += '\n\t\t\t\t<a href="%s/%s" target="_top">%s</a>\n\t\t\t</div>' %(parentPath, filename, filename)
 
     if not isGen:
@@ -131,7 +134,7 @@ def traversalDir(filepath, genDir):
         print 'genorate html file OK'
 
 if __name__ == '__main__':
-    srcPath = '/media/mnt/Videos/'
+    srcPath = '/media/pi/Boshin/Videos/'
     genDir = '/usr/local/nginx-stream/html/source'
 
     reCreatDir(genDir)
