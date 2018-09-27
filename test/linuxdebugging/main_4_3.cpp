@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 class Point2d{
 public:
   virtual void Foo(){}
@@ -38,5 +40,9 @@ int main(int argc, char* argv[])
 {
   Vertex3d obj;
   obj.test();
+  int nValue = 0;
+  nValue = 05 << 8;
+  nValue |= 01;
+  printf("nValue: %d\n", nValue);
   return 0;
 }
