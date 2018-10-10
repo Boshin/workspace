@@ -7,6 +7,6 @@ build/ # 忽略 build/ 目录下的所有文件
 #*.zip
 .tags*
 *.sublime-workspace
-.DS_Store
+*.DS_Store
 *.sublime-project
 *.swp

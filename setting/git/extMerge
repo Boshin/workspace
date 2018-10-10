@@ -1,0 +1,1 @@
+#!/bin/sh /Applications/Meld.app/Contents/MacOS/Meld $*

@@ -1,0 +1,23 @@
+[user]
+	name = xu yang
+	email = xuyang05975@hellobike.com
+[core]
+	editor = vim
+	excludesFile = /Users/boshin/github/workspace/.gitignore
+[help]
+	autoCorrect = 1
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -l HEAD
+[color]
+	ui = true
+[merge]
+	tool = extMerge
+[mergetool "extMerge"]
+	cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED" trustExitCode = false
+[diff]
+	external = extDiff
