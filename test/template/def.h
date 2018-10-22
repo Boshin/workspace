@@ -31,4 +31,5 @@ struct ClienTestCase
         : m_methodPtr(methodPtr) { }
 };
 }
+
 #endif /* MMFTEST_DEF_H_ */
